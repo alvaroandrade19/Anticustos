@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NEXUS AI - Premium Solutions</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Lenis Fallback -->
+    <style>
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+    </style>
+
+    <!-- Tailwind Config Base -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        neutral: {
+                            850: '#1f1f1f',
+                            950: '#0a0a0a',
+                        },
+                        brand: {
+                            500: '#e11d48',
+                            600: '#be123c',
+                            accent: '#fb7185'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS Base -->
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #e5e5e5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a { text-decoration: none; }
+        
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #ffffff, rgba(255,255,255,0.4));
+        }
+        
+        .glass {
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 4px 24px -1px rgba(0,0,0,0.2);
+        }
+
+        .btn-beam {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9999px;
+            background-color: #7c3aed; /* Changed slightly to match Riverside purple button tone */
+            z-index: 1;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-beam:hover {
+            background-color: #6d28d9;
+            transform: scale(1.02);
+        }
+        .btn-beam::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.6) 60deg, transparent 120deg);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: spin-beam 2s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .btn-beam:hover::before {
+            opacity: 1;
+        }
+        @keyframes spin-beam {
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0.01;
+            filter: blur(10px);
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+        }
+
+        /* Checkbox interaction style */
+        .chip-checkbox {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .chip-checkbox:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .chip-box {
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .chip-checkbox:hover .chip-box {
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+        .chip-checkbox svg {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .chip-checkbox:hover svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-neutral-300 antialiased min-h-screen relative">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-transform duration-300">
+        <div class="container-fluid max-w-[90rem] mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <div class="flex items-center gap-3">
+                    <span class="font-display font-medium text-xl text-white tracking-tight flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                        NEXUS
+                    </span>
+                </div>
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-white/80">
+                    <a href="#" class="hover:text-white flex items-center gap-1">Product <i data-lucide="chevron-down" class="w-3 h-3"></i></a>
+                    <a href="#" class="hover:text-white flex items-center gap-1">Solutions <i data-lucide="chevron-down" class="w-3 h-3"></i></a>
+                    <a href="#" class="hover:text-white flex items-center gap-1">Resources <i data-lucide="chevron-down" class="w-3 h-3"></i></a>
+                    <a href="#" class="hover:text-white">For Business</a>
+                    <a href="#" class="hover:text-white">Pricing</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-sm font-medium text-white/80 hover:text-white hidden sm:block">Contact Sales</a>
+                <a href="#" class="text-sm font-medium text-white/80 hover:text-white hidden sm:block">Login</a>
+                <button class="px-5 py-2.5 text-sm text-white font-medium rounded-full border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-md">
+                    Start for Free
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Full-Screen Autoplay Hero -->
+        <section class="relative w-full min-h-[100vh] flex items-center overflow-hidden bg-black pb-20 pt-32">
+            
+            <!-- Video Background -->
+            <div class="absolute inset-0 z-0 select-none pointer-events-none bg-[#050505] overflow-hidden">
+                
+                <!-- Container imersivo 100% da tela (Sensação tela-cheia mantida pura) -->
+                <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+                    <!-- 
+                      Alinhamento exato baseado na Imagem 3:
+                      - Zoom/Scale removidos: Volta ao tamanho natural de object-cover (olho menor, como requisitado).
+                      - Translação pura de +22% para a direita (afastando mais o olho do centro).
+                      - Eixo Y suave de +5% para manter a altura confortável.
+                    -->
+                    <video id="heroVideo" 
+                           src="video.mp4.mp4" 
+                           autoplay 
+                           loop 
+                           muted 
+                           playsinline 
+                           class="w-full h-full object-cover opacity-85 brightness-[0.95]"
+                           style="transform: translate(22%, 5%);">
+                    </video>
+                </div>
+
+                <!-- Escurecimento Suave das Bordas Nativas (Shadow Vignettes Fundos) -->
+                <div class="absolute inset-0 shadow-[inset_0_0_150px_40px_rgba(5,5,5,1)] z-10 pointer-events-none"></div>
+                <div class="absolute inset-0 shadow-[inset_0_0_350px_120px_rgba(5,5,5,1)] z-10 pointer-events-none opacity-90" style="mix-blend-mode: multiply;"></div>
+
+                <!-- O Escurecimento Suave Foco total à esquerda para dar contraste de legibilidade -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10 mix-blend-multiply w-[85%] lg:w-[75%]"></div>
+                <!-- Cobertura selada em preto sólido até 25% para esconder de forma invisível a borda reta esquerda causada pela translação do vídeo -->
+                <div class="absolute inset-0 w-full" style="background: linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,1) 25%, rgba(5,5,5,0) 65%); z-index: 10;"></div>
+                
+                <!-- Bottom fade -->
+                <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10"></div>
+            </div>
+
+            <div class="container-fluid max-w-[90rem] mx-auto px-6 relative z-20 w-full">
+                <!-- Left Aligned Flex Block -->
+                <div class="max-w-[800px] w-full flex flex-col items-start text-left hero-anim-wrapper pt-10 md:pt-0">
+                    
+                    <h1 class="text-[3.5rem] md:text-[5rem] lg:text-[5.5rem] font-display font-bold tracking-tighter leading-[1.05] mb-6 hero-anim text-white">
+                        Create your<br>
+                        best content yet.
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-neutral-300 mb-8 leading-relaxed hero-anim max-w-2xl font-medium">
+                        Nexus is the AI-powered platform that lets you record, edit, repurpose, and distribute studio-quality content as easily as if you had a crew behind you.
+                    </p>
+                    
+                    <!-- Checkbox Features Grid -->
+                    <div class="flex flex-wrap gap-x-4 gap-y-4 mb-10 hero-anim max-w-[700px]">
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Podcasts</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Interviews</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Webinars</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Live streams</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Social clips</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Video marketing</span>
+                        </div>
+                        
+                        <div class="glass chip-checkbox px-4 py-2.5 rounded-[100px] flex items-center gap-2.5">
+                            <div class="chip-box"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>
+                            <span class="text-[15px] font-semibold text-white tracking-tight">Transcriptions</span>
+                        </div>
+                        
+                    </div>
+
+                    <!-- CTA Block -->
+                    <div class="flex flex-col items-start gap-3 hero-anim">
+                        <button class="btn-beam px-12 py-4 text-base text-white font-semibold shadow-xl">
+                            <span class="relative z-10">Start for Free</span>
+                        </button>
+                        <span class="text-xs text-neutral-400 font-medium">*No credit card needed. Free plan available.</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Mock Space for further scrolling to test sticky nav and lenis -->
+        <section class="max-w-[90rem] mx-auto px-6 py-24 relative z-10 bg-[#050505]">
+            <div class="mb-12 text-center md:text-left animate-on-scroll">
+                <span class="text-xs uppercase tracking-[0.2em] text-[#a78bfa] font-mono mb-2 block">Enterprise Scale</span>
+                <h2 class="text-4xl font-display font-bold tracking-tight text-white mb-4">High Fidelity Content</h2>
+                <p class="text-neutral-500 max-w-2xl mx-auto md:mx-0 font-medium">Record remotely in uncompressed 4K video and 48kHz WAV audio natively.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Example Card -->
+                <div class="glass p-8 rounded-3xl animate-on-scroll">
+                    <i data-lucide="mic" class="w-8 h-8 text-[#a78bfa] mb-6"></i>
+                    <div class="font-display font-medium text-white text-xl mb-3">Studio Quality</div>
+                    <p class="text-sm text-neutral-500 font-medium leading-relaxed">Local recording means your quality doesn't depend on internet connection.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl animate-on-scroll" style="transition-delay: 100ms;">
+                    <i data-lucide="scissors" class="w-8 h-8 text-[#a78bfa] mb-6"></i>
+                    <div class="font-display font-medium text-white text-xl mb-3">AI Editor</div>
+                    <p class="text-sm text-neutral-500 font-medium leading-relaxed">Edit your video by simply editing the text transcript. Fast and efficient.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl animate-on-scroll" style="transition-delay: 200ms;">
+                    <i data-lucide="share-2" class="w-8 h-8 text-[#a78bfa] mb-6"></i>
+                    <div class="font-display font-medium text-white text-xl mb-3">Magic Clips</div>
+                    <p class="text-sm text-neutral-500 font-medium leading-relaxed">Let AI automatically find block-buster moments for your social media.</p>
+                </div>
+            </div>
+            <div style="height: 40vh;"></div>
+        </section>
+
+    </main>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- GSAP & Lenis CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Reveal on scroll standard logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Smooth Scroll with Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+        });
+        
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // UI Intro Entry Animations (Replacing scrub logic with elegant fading)
+        const tlEntry = gsap.timeline({ delay: 0.3 });
+        tlEntry.fromTo(".hero-anim", 
+            { y: 30, opacity: 0, filter: "blur(8px)" },
+            { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, stagger: 0.08, ease: "power3.out" }
+        );
+        
+        // Navigation fade in
+        gsap.fromTo("nav", 
+            { y: -20, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.1 }
+        );
+
+        // Native Autoplay fallback force for Safari/Mobile devices
+        const heroVid = document.getElementById('heroVideo');
+        if (heroVid) {
+            heroVid.play().catch((e) => {
+                console.log("Autoplay was caught by browser", e);
+                // Can trigger a play button interaction here if needed
+            });
+        }
+    </script>
+</body>
+</html>
