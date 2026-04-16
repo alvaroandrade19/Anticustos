@@ -393,7 +393,7 @@
 
                     <!-- CTA Block -->
                     <div class="flex flex-col items-start gap-3 hero-anim">
-                        <button class="btn-beam px-12 py-4 text-base text-white font-semibold !bg-rose-900 hover:!bg-rose-800 !shadow-[0_0_30px_-5px_rgba(136,19,55,0.5)] hover:!shadow-[0_10px_40px_-10px_rgba(159,18,57,0.7)]">
+                        <button class="btn-beam px-12 py-4 text-base text-white font-semibold !bg-blue-600 hover:!bg-blue-500 !shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] hover:!shadow-[0_10px_40px_-10px_rgba(59,130,246,0.6)]">
                             <span class="relative z-10">Quero usar IA a meu favor</span>
                         </button>
                     </div>
@@ -402,47 +402,66 @@
             </div>
         </section>
 
-        <!-- Mock Space for further scrolling to test sticky nav and lenis -->
-        <section class="max-w-[90rem] mx-auto px-6 py-24 relative z-10 bg-[#050505]">
-            <div class="mb-12 text-center md:text-left animate-on-scroll">
-                <span class="text-xs uppercase tracking-[0.2em] text-[#a78bfa] font-mono mb-2 block">Enterprise
-                    Scale</span>
-                <h2 class="text-4xl font-display font-bold tracking-tight text-white mb-4">High Fidelity Content</h2>
-                <p class="text-neutral-500 max-w-2xl mx-auto md:mx-0 font-medium">Record remotely in uncompressed 4K
-                    video and 48kHz WAV audio natively.</p>
+        <!-- Benefícios e Serviços de IA (Workflow Engine) -->
+        <section class="max-w-[80rem] mx-auto px-6 py-32 relative z-10 bg-[#050505] overflow-visible">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center mb-20 animate-on-scroll">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.03] mb-6 shadow-sm backdrop-blur-md">
+                    <i data-lucide="zap" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    <span class="text-xs font-medium text-neutral-300">Inteligência Operacional</span>
+                </div>
+                
+                <h2 class="text-[2.5rem] md:text-[3.5rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.1]">
+                    Menos operação. Mais resultado.<br>
+                    <span class="bg-gradient-to-r from-blue-300 via-indigo-300 to-indigo-400 bg-clip-text text-transparent">Sem complicação.</span>
+                </h2>
+                
+                <p class="text-lg text-neutral-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Automatize tarefas que hoje consomem horas da sua equipe, reduza desperdícios operacionais e tenha clareza para decidir rápido — sem aumentar estrutura.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Example Card -->
-                <div class="flashlight-card p-8 rounded-3xl animate-on-scroll">
-                    <div class="flashlight-border rounded-3xl"></div>
-                    <div class="relative z-10">
-                        <i data-lucide="mic" class="w-8 h-8 text-brand-accent mb-6"></i>
-                        <div class="font-display font-medium text-white text-xl mb-3">Studio Quality</div>
-                        <p class="text-sm text-neutral-400 font-medium leading-relaxed">Local recording means your
-                            quality doesn't depend on internet connection.</p>
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="flashlight-card p-8 md:p-10 rounded-[2rem] bg-[#0a0a0a] border border-white/[0.04] flex flex-col relative z-20 hover:-translate-y-1 transition-transform duration-500 animate-on-scroll">
+                    <div class="flashlight-border rounded-[2rem]"></div>
+                    <div class="relative z-10 flex-1 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/[0.08] border border-indigo-400/20 text-indigo-400 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(129,140,248,0.15)] ring-1 ring-indigo-400/10">
+                            <i data-lucide="clock" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-semibold text-white leading-snug mb-4">Recupere de 5 a 15 horas por semana da sua equipe</h3>
+                        <p class="text-[15px] text-neutral-400 leading-relaxed">Automatize tarefas repetitivas como organização de dados, comunicação interna e execução de processos. Sua equipe deixa de operar no manual e passa a focar no que realmente gera resultado.</p>
                     </div>
                 </div>
-                <div class="flashlight-card p-8 rounded-3xl animate-on-scroll" style="transition-delay: 100ms;">
-                    <div class="flashlight-border rounded-3xl"></div>
-                    <div class="relative z-10">
-                        <i data-lucide="scissors" class="w-8 h-8 text-brand-accent mb-6"></i>
-                        <div class="font-display font-medium text-white text-xl mb-3">AI Editor</div>
-                        <p class="text-sm text-neutral-400 font-medium leading-relaxed">Edit your video by simply
-                            editing the text transcript. Fast and efficient.</p>
+
+                <!-- Card 2 -->
+                <div class="flashlight-card p-8 md:p-10 rounded-[2rem] bg-[#0a0a0a] border border-white/[0.04] flex flex-col relative z-20 hover:-translate-y-1 transition-transform duration-500 animate-on-scroll" style="transition-delay: 150ms;">
+                    <div class="flashlight-border rounded-[2rem]"></div>
+                    <div class="relative z-10 flex-1 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/[0.08] border border-indigo-400/20 text-indigo-400 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(129,140,248,0.15)] ring-1 ring-indigo-400/10">
+                            <i data-lucide="trending-down" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-semibold text-white leading-snug mb-4">Reduza custos operacionais em até 20%</h3>
+                        <p class="text-[15px] text-neutral-400 leading-relaxed">Menos retrabalho, menos erros e menos dependência de processos manuais. Você mantém (ou melhora) a performance, enquanto sua operação se torna mais enxuta.</p>
                     </div>
                 </div>
-                <div class="flashlight-card p-8 rounded-3xl animate-on-scroll" style="transition-delay: 200ms;">
-                    <div class="flashlight-border rounded-3xl"></div>
-                    <div class="relative z-10">
-                        <i data-lucide="share-2" class="w-8 h-8 text-brand-accent mb-6"></i>
-                        <div class="font-display font-medium text-white text-xl mb-3">Magic Clips</div>
-                        <p class="text-sm text-neutral-400 font-medium leading-relaxed">Let AI automatically find
-                            block-buster moments for your social media.</p>
+
+                <!-- Card 3 -->
+                <div class="flashlight-card p-8 md:p-10 rounded-[2rem] bg-[#0a0a0a] border border-white/[0.04] flex flex-col relative z-20 hover:-translate-y-1 transition-transform duration-500 animate-on-scroll" style="transition-delay: 300ms;">
+                    <div class="flashlight-border rounded-[2rem]"></div>
+                    <div class="relative z-10 flex-1 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/[0.08] border border-indigo-400/20 text-indigo-400 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(129,140,248,0.15)] ring-1 ring-indigo-400/10">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-semibold text-white leading-snug mb-4">Tenha clareza para decidir sem achismo</h3>
+                        <p class="text-[15px] text-neutral-400 leading-relaxed">Centralize informações e acompanhe o que está funcionando em tempo real. Decisões que antes levavam dias passam a ser feitas em minutos — com mais segurança.</p>
                     </div>
                 </div>
+
             </div>
-            <div style="height: 40vh;"></div>
+            <div style="height: 10vh;"></div>
         </section>
 
     </main>
