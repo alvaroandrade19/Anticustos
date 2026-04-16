@@ -363,13 +363,14 @@
                     style="mix-blend-mode: multiply;"></div>
 
                 <!-- O Escurecimento Suave Foco total à esquerda para dar contraste de legibilidade -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10 mix-blend-multiply w-[85%] lg:w-[75%]">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40 md:to-transparent z-10 mix-blend-multiply w-full lg:w-[75%]">
                 </div>
-                <!-- Cobertura selada em preto sólido estendida para garantir segurança em qualquer tela (esconde o corte limpo gerado) -->
-                <div class="absolute inset-0 w-full"
+                <!-- Cobertura selada em preto sólido estendida para garantir segurança em qualquer tela -->
+                <div class="absolute inset-0 w-full hidden md:block"
                     style="background: linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,1) 32%, rgba(5,5,5,0) 65%); z-index: 10;">
                 </div>
+                <!-- Cobertura móvel para garantir legibilidade impecável do texto sobre o video -->
+                <div class="absolute inset-0 w-full bg-[#050505]/60 md:hidden z-10 pointer-events-none"></div>
 
                 <!-- Bottom fade -->
                 <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10"></div>
@@ -379,9 +380,8 @@
                 <!-- Left Aligned Flex Block -->
                 <div class="max-w-[800px] w-full flex flex-col items-start text-left hero-anim-wrapper pt-10 md:pt-0">
 
-                    <h1
-                        class="text-[3.5rem] md:text-[5rem] lg:text-[5.5rem] font-display font-bold tracking-tighter leading-[1.05] mb-6 hero-anim text-white">
-                        Implemente IA no seu negócio<br>
+                    <h1 class="text-4xl sm:text-5xl md:text-[5rem] lg:text-[5.5rem] font-display font-bold tracking-tighter leading-[1.1] md:leading-[1.05] mb-6 hero-anim text-white">
+                        Implemente IA no seu negócio<br class="hidden md:block">
                         <span class="text-gradient">antes que ela torne você irrelevante.</span>
                     </h1>
 
@@ -392,8 +392,8 @@
                     </p>
 
                     <!-- CTA Block -->
-                    <div class="flex flex-col items-start gap-3 hero-anim">
-                        <button class="btn-beam px-12 py-4 text-base text-white font-semibold !bg-blue-600 hover:!bg-blue-500 !shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] hover:!shadow-[0_10px_40px_-10px_rgba(59,130,246,0.6)]">
+                    <div class="flex flex-col items-start gap-3 hero-anim w-full sm:w-auto mt-2">
+                        <button class="btn-beam px-12 py-4 text-base text-white font-semibold !bg-blue-600 hover:!bg-blue-500 !shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] hover:!shadow-[0_10px_40px_-10px_rgba(59,130,246,0.6)] w-full sm:w-auto">
                             <span class="relative z-10">Quero usar IA a meu favor</span>
                         </button>
                     </div>
@@ -411,7 +411,7 @@
                     <span class="text-xs font-medium text-neutral-300">Inteligência Operacional</span>
                 </div>
                 
-                <h2 class="text-[2.5rem] md:text-[3.5rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.1]">
+                <h2 class="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.2] md:leading-[1.1]">
                     Menos operação. Mais resultado.<br>
                     <span class="bg-gradient-to-r from-blue-300 via-indigo-300 to-indigo-400 bg-clip-text text-transparent">Sem complicação.</span>
                 </h2>
@@ -461,6 +461,169 @@
                 </div>
 
             </div>
+            <div style="height: 10vh;"></div>
+        </section>
+
+        <!-- Seção: Como Funciona (Jornada) -->
+        <section class="max-w-[80rem] mx-auto px-6 py-20 lg:py-32 relative z-10 bg-[#050505]">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center mb-24 animate-on-scroll">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.03] mb-6 shadow-sm backdrop-blur-md">
+                    <i data-lucide="git-merge" class="w-3.5 h-3.5 text-blue-400"></i>
+                    <span class="text-xs font-medium text-neutral-300">A Jornada</span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.2] md:leading-[1.1]">
+                    Simples de implementar.<br class="hidden md:block">
+                    <span class="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">Rápido de gerar resultado.</span>
+                </h2>
+                
+                <p class="text-lg text-neutral-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Nós cuidamos da estrutura, implementação e otimização. Você acompanha os ganhos acontecendo na prática — sem travar sua operação.
+                </p>
+            </div>
+
+            <!-- Steps Journey -->
+            <div class="relative w-full">
+                <!-- Connecting Line Desktop -->
+                <div class="hidden md:block absolute top-[3rem] left-[16.666%] right-[16.666%] h-[1px] bg-gradient-to-r from-transparent via-white/[0.1] to-transparent z-0"></div>
+                
+                <!-- Connecting Line Mobile (Vertical) -->
+                <div class="md:hidden absolute top-0 bottom-0 left-[3rem] w-[1px] bg-gradient-to-b from-transparent via-white/[0.1] to-transparent z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+                    
+                    <!-- Passo 1 -->
+                    <div class="relative z-10 flex md:flex-col items-start md:items-center text-left md:text-center animate-on-scroll">
+                        <!-- Circle -->
+                        <div class="w-24 h-24 shrink-0 rounded-full bg-[#0a0a0a] border border-white/[0.05] flex items-center justify-center mb-0 md:mb-8 shadow-[0_0_30px_rgba(37,99,235,0.05)] ring-1 ring-white/[0.02] relative group transition-all duration-500 hover:border-blue-500/30 hover:-translate-y-1">
+                            <!-- Subtle Inner Glow -->
+                            <div class="absolute inset-2 rounded-full border border-white/[0.02] bg-white/[0.01]"></div>
+                            <span class="font-display text-xl text-neutral-500 group-hover:text-blue-400 transition-colors duration-500">01</span>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="ml-6 md:ml-0 mt-2 md:mt-0 flex-1">
+                            <h3 class="text-xl font-display font-semibold text-white mb-3 leading-snug">Entendemos onde sua operação está travando</h3>
+                            <p class="text-[15px] text-neutral-400 leading-relaxed md:max-w-[280px] mx-auto">Analisamos seus processos atuais e identificamos onde estão os maiores gargalos, retrabalhos e desperdícios de tempo. Você enxerga com clareza onde está perdendo eficiência hoje.</p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="relative z-10 flex md:flex-col items-start md:items-center text-left md:text-center animate-on-scroll" style="transition-delay: 150ms;">
+                        <!-- Circle -->
+                        <div class="w-24 h-24 shrink-0 rounded-full bg-[#0a0a0a] border border-white/[0.05] flex items-center justify-center mb-0 md:mb-8 shadow-[0_0_30px_rgba(37,99,235,0.05)] ring-1 ring-white/[0.02] relative group transition-all duration-500 hover:border-blue-500/30 hover:-translate-y-1">
+                            <div class="absolute inset-2 rounded-full border border-white/[0.02] bg-white/[0.01]"></div>
+                            <span class="font-display text-xl text-neutral-500 group-hover:text-blue-400 transition-colors duration-500">02</span>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="ml-6 md:ml-0 mt-2 md:mt-0 flex-1">
+                            <h3 class="text-xl font-display font-semibold text-white mb-3 leading-snug">Estruturamos a automação sob medida para o seu negócio</h3>
+                            <p class="text-[15px] text-neutral-400 leading-relaxed md:max-w-[280px] mx-auto">Desenhamos e organizamos fluxos inteligentes que se integram às ferramentas que você já usa. Sem mudança brusca. Sem ruptura na operação.</p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="relative z-10 flex md:flex-col items-start md:items-center text-left md:text-center animate-on-scroll" style="transition-delay: 300ms;">
+                        <!-- Circle -->
+                        <div class="w-24 h-24 shrink-0 rounded-full bg-[#0a0a0a] border border-white/[0.05] flex items-center justify-center mb-0 md:mb-8 shadow-[0_0_30px_rgba(37,99,235,0.05)] ring-1 ring-white/[0.02] relative group transition-all duration-500 hover:border-blue-500/30 hover:-translate-y-1">
+                            <div class="absolute inset-2 rounded-full border border-white/[0.02] bg-white/[0.01]"></div>
+                            <span class="font-display text-xl text-neutral-500 group-hover:text-blue-400 transition-colors duration-500">03</span>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="ml-6 md:ml-0 mt-2 md:mt-0 flex-1">
+                            <h3 class="text-xl font-display font-semibold text-white mb-3 leading-snug">Implementamos e ajustamos com base em resultado real</h3>
+                            <p class="text-[15px] text-neutral-400 leading-relaxed md:max-w-[280px] mx-auto">Colocamos tudo para rodar e acompanhamos os primeiros ganhos na prática. Ajustes contínuos garantem que a operação evolua sem voltar ao caos anterior.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div style="height: 10vh;"></div>
+        </section>
+
+        <!-- Seção: Para Quem É e Para Quem Não É -->
+        <section class="max-w-[80rem] mx-auto px-6 py-20 lg:py-32 relative z-10 bg-[#050505] border-t border-white/[0.02]">
+            
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.03] mb-6 shadow-sm backdrop-blur-md">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i>
+                    <span class="text-xs font-medium text-neutral-300">Alinhamento</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl md:text-[3rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.2] max-w-4xl">
+                    Sua empresa está caminhando…<br class="hidden md:block">
+                    <span class="text-neutral-400">mas parece cada vez mais difícil operar?</span>
+                </h2>
+                <p class="text-lg text-neutral-300 max-w-3xl mx-auto font-medium leading-relaxed">
+                    Mais demanda, mais tarefas, mais gente envolvida e ainda assim tudo continua dependendo de esforço manual, ajustes constantes e decisões no escuro.<br><br>
+                    <span class="text-white font-semibold">É exatamente aqui que a maioria trava.</span>
+                </p>
+            </div>
+
+            <!-- Cards / Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch max-w-6xl mx-auto">
+                
+                <!-- Para Quem É -->
+                <div class="relative bg-[#0a0a0a] border border-white/[0.04] rounded-[2rem] p-8 md:p-12 overflow-hidden flex flex-col animate-on-scroll group hover:border-white/[0.08] transition-colors duration-500">
+                    <!-- Green border accent -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500 shadow-[2px_0_20px_rgba(16,185,129,0.3)]"></div>
+                    
+                    <h3 class="text-2xl font-display font-semibold text-white mb-10 pl-2">PARA QUEM É</h3>
+                    
+                    <ul class="flex flex-col gap-6 pl-2">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed">Você sente que sua equipe está ocupada o tempo todo mas a produtividade não acompanha</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed">Processos importantes ainda dependem de execução manual ou controle humano constante</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed">O crescimento do negócio começa a gerar desorganização, retrabalho e gargalos</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed">Você quer escalar sem precisar aumentar equipe</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Não É Para Você -->
+                <div class="relative bg-[#0a0a0a] border border-white/[0.04] rounded-[2rem] p-8 md:p-12 overflow-hidden flex flex-col animate-on-scroll group hover:border-white/[0.08] transition-colors duration-500" style="transition-delay: 150ms;">
+                    <!-- Red border accent -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-rose-500 shadow-[2px_0_20px_rgba(244,63,94,0.3)]"></div>
+                    
+                    <h3 class="text-2xl font-display font-semibold text-white mb-10 pl-2">NÃO É PARA VOCÊ SE</h3>
+                    
+                    <ul class="flex flex-col gap-6 pl-2">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed opacity-80">Você ainda está “curioso” sobre IA, mas sem intenção real de aplicar no negócio</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed opacity-80">Prefere manter tudo manual, mesmo sabendo que isso limita seu crescimento</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed opacity-80">Acredita que contratar mais pessoas resolve problemas de processo</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <span class="text-[15px] text-neutral-300 leading-relaxed opacity-80">Você busca “testar IA” sem foco em resultado prático</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
             <div style="height: 10vh;"></div>
         </section>
 
