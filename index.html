@@ -338,7 +338,7 @@
     <main>
 
         <!-- Full-Screen Autoplay Hero -->
-        <section class="relative w-full min-h-[100vh] flex items-center overflow-hidden bg-black pb-20 pt-32">
+        <section class="relative w-full min-h-[100vh] flex items-center overflow-hidden bg-black pb-0 pt-32">
 
             <!-- Video Background -->
             <div class="absolute inset-0 z-0 select-none pointer-events-none bg-[#050505] overflow-hidden">
@@ -403,7 +403,7 @@
         </section>
 
         <!-- Benefícios e Serviços de IA (Workflow Engine) -->
-        <section class="max-w-[80rem] mx-auto px-6 py-32 relative z-10 bg-[#050505] overflow-visible">
+        <section class="max-w-[80rem] mx-auto px-6 pt-10 pb-16 lg:pt-16 lg:pb-24 relative z-10 bg-[#050505] overflow-visible">
             <!-- Header Section -->
             <div class="flex flex-col items-center text-center mb-20 animate-on-scroll">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.03] mb-6 shadow-sm backdrop-blur-md">
@@ -461,11 +461,10 @@
                 </div>
 
             </div>
-            <div style="height: 10vh;"></div>
         </section>
 
         <!-- Seção: Como Funciona (Jornada) -->
-        <section class="max-w-[80rem] mx-auto px-6 py-20 lg:py-32 relative z-10 bg-[#050505]">
+        <section class="max-w-[80rem] mx-auto px-6 py-16 lg:py-24 relative z-10 bg-[#050505]">
             <!-- Header Section -->
             <div class="flex flex-col items-center text-center mb-24 animate-on-scroll">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.03] mb-6 shadow-sm backdrop-blur-md">
@@ -542,11 +541,10 @@
                 </div>
             </div>
             
-            <div style="height: 10vh;"></div>
         </section>
 
         <!-- Seção: Para Quem É e Para Quem Não É -->
-        <section class="max-w-[80rem] mx-auto px-6 py-20 lg:py-32 relative z-10 bg-[#050505] border-t border-white/[0.02]">
+        <section class="max-w-[80rem] mx-auto px-6 py-16 lg:py-24 relative z-10 bg-[#050505] border-t border-white/[0.02]">
             
             <!-- Header Section -->
             <div class="flex flex-col items-center text-center mb-16 animate-on-scroll">
@@ -624,7 +622,137 @@
 
             </div>
             
-            <div style="height: 10vh;"></div>
+        </section>
+
+        <!-- Seção: Quebra de Objeções -->
+        <section class="max-w-[80rem] mx-auto px-6 py-16 lg:py-24 relative z-10 bg-[#050505]">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center mb-24 animate-on-scroll">
+                <h2 class="text-3xl sm:text-4xl md:text-[3.5rem] font-display font-medium tracking-tight text-white mb-6 leading-[1.1] max-w-4xl">
+                    Sua operação está limitando o crescimento da sua empresa
+                </h2>
+                <p class="text-lg text-neutral-400 max-w-3xl mx-auto font-medium leading-relaxed">
+                    Sem estrutura, mais demanda só gera mais caos, mais custo e menos controle.<br>
+                    <span class="text-white">Nós resolvemos isso com IA aplicada na prática, não na teoria.</span>
+                </p>
+            </div>
+
+            <!-- Objeções Grid Inspired by Reference Image -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 items-start max-w-6xl mx-auto mb-16 lg:mb-24 relative">
+                <!-- Divider lines desktop -->
+                <div class="hidden md:block absolute top-[10%] bottom-[10%] left-[33.33%] w-[1px] bg-white/[0.04]"></div>
+                <div class="hidden md:block absolute top-[10%] bottom-[10%] right-[33.33%] w-[1px] bg-white/[0.04]"></div>
+
+                <!-- Objeção 1 -->
+                <div class="flex flex-col items-center text-center animate-on-scroll px-4 md:px-6">
+                    <span class="text-[11px] font-bold tracking-widest text-[#0ea5e9] uppercase mb-6">Complexidade</span>
+                    <h3 class="text-2xl font-display font-medium text-white mb-6 italic leading-snug">“Isso parece complexo demais.”</h3>
+                    <p class="text-[15px] text-neutral-400 leading-relaxed max-w-xs">
+                        Não é. Nós estruturamos tudo para você, usando o que sua empresa já tem hoje. Sem mudança brusca. Sem parar sua operação.
+                    </p>
+                </div>
+
+                <!-- Objeção 2 -->
+                <div class="flex flex-col items-center text-center animate-on-scroll px-4 md:px-6" style="transition-delay: 150ms;">
+                    <span class="text-[11px] font-bold tracking-widest text-[#a855f7] uppercase mb-6">Aplicabilidade</span>
+                    <h3 class="text-2xl font-display font-medium text-white mb-6 italic leading-snug">“Isso funciona no meu tipo de negócio?”</h3>
+                    <p class="text-[15px] text-neutral-400 leading-relaxed max-w-xs">
+                        Se sua empresa tem processos, tarefas repetitivas e decisões baseadas em informação — funciona. Não é sobre o setor. É sobre como sua operação está organizada.
+                    </p>
+                </div>
+
+                <!-- Objeção 3 -->
+                <div class="flex flex-col items-center text-center animate-on-scroll px-4 md:px-6" style="transition-delay: 300ms;">
+                    <span class="text-[11px] font-bold tracking-widest text-emerald-400 uppercase mb-6">Transição</span>
+                    <h3 class="text-2xl font-display font-medium text-white mb-6 italic leading-snug">“Vou precisar mudar tudo?”</h3>
+                    <p class="text-[15px] text-neutral-400 leading-relaxed max-w-xs">
+                        Não. A ideia não é substituir o que já funciona, mas organizar, automatizar e escalar o que hoje depende de esforço manual.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CTA Final Section & Posicionamento -->
+        <section class="max-w-[80rem] mx-auto px-6 py-10 lg:py-16 relative z-10 bg-[#050505]">
+            <!-- Header Centralizado -->
+            <div class="flex flex-col items-center text-center w-full max-w-5xl mx-auto mb-10 lg:mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-[3.5rem] lg:text-[4rem] font-display font-medium tracking-tight text-white leading-[1.05]">
+                    Pare de operar no limite.<br class="hidden md:block">
+                    <span class="text-neutral-400 font-medium">Vamos aplicar isso na sua empresa.</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
+                
+                <!-- Left Content -->
+                <div class="flex flex-col items-start text-left animate-on-scroll">
+                    
+                    <p class="text-[16px] lg:text-[17px] text-neutral-300 mb-10 leading-relaxed font-medium">
+                        Não vendemos ferramentas. Não entregamos teoria. Entramos na sua operação, estruturamos o que está travando e implementamos IA onde ela realmente gera ganho. Simples assim.
+                    </p>
+
+                    <div class="flex flex-col gap-8 w-full">
+                        <!-- Bullet 1 -->
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="check-circle" class="w-[22px] h-[22px] text-neutral-400 shrink-0 mt-1 stroke-[1.5]"></i>
+                            <div>
+                                <h4 class="text-white font-bold text-[17px] mb-2 tracking-tight">Automação Inteligente</h4>
+                                <p class="text-[16px] text-neutral-400 leading-relaxed max-w-[90%]">Elimine tarefas operacionais que travam sua equipe e consomem tempo todos os dias.</p>
+                            </div>
+                        </div>
+                        <!-- Bullet 2 -->
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="check-circle" class="w-[22px] h-[22px] text-neutral-400 shrink-0 mt-1 stroke-[1.5]"></i>
+                            <div>
+                                <h4 class="text-white font-bold text-[17px] mb-2 tracking-tight">Eficiência Operacional</h4>
+                                <p class="text-[16px] text-neutral-400 leading-relaxed max-w-[90%]">Faça mais com menos esforço, reduzindo retrabalho, erros e desperdícios invisíveis.</p>
+                            </div>
+                        </div>
+                        <!-- Bullet 3 -->
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="check-circle" class="w-[22px] h-[22px] text-neutral-400 shrink-0 mt-1 stroke-[1.5]"></i>
+                            <div>
+                                <h4 class="text-white font-bold text-[17px] mb-2 tracking-tight">Decisão com Clareza</h4>
+                                <p class="text-[16px] text-neutral-400 leading-relaxed max-w-[90%]">Saiba exatamente o que está funcionando e onde agir sem depender de tentativa e erro.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Content (CTA Focus Area) -->
+                <div class="relative animate-on-scroll flex flex-col justify-center h-full" style="transition-delay: 200ms;">
+                    <!-- Focus Card Style -->
+                    <div class="bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/[0.08] rounded-[2rem] overflow-hidden shadow-2xl relative p-8 md:p-12 flex flex-col items-center text-center group hover:border-white/[0.12] transition-colors duration-500">
+                        
+                        <!-- Accent Top Glow -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[30px] bg-blue-500/20 blur-[30px] rounded-full"></div>
+
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/[0.08] border border-blue-400/20 text-blue-400 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(59,130,246,0.15)] ring-1 ring-blue-400/10">
+                            <i data-lucide="rocket" class="w-7 h-7"></i>
+                        </div>
+
+                        <p class="text-[17px] md:text-[18px] text-neutral-200 leading-relaxed font-medium mb-10 text-center max-w-[90%]">
+                            Em uma conversa rápida, mostramos exatamente onde você pode ganhar tempo, reduzir custos e operar com mais clareza.
+                            <span class="text-white font-display font-semibold block mt-8 text-2xl md:text-[26px] tracking-tight">Sem compromisso.<br> Sem complexidade.</span>
+                        </p>
+                        
+                        <button class="btn-beam px-10 py-5 text-[16px] md:text-[17px] text-white font-bold !bg-blue-600 hover:!bg-blue-500 !shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] hover:!shadow-[0_10px_50px_-10px_rgba(59,130,246,0.8)] w-full rounded-2xl group cursor-pointer inline-flex items-center justify-center gap-3">
+                            <span class="relative z-10 flex items-center gap-2">
+                                Quero aplicar no meu negócio
+                                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </button>
+                        
+                    </div>
+                    
+                    <!-- Background Glow -->
+                    <div class="absolute inset-0 bg-blue-600/15 blur-[120px] z-[-1] rounded-full pointer-events-none translate-y-8"></div>
+                </div>
+
+            </div>
         </section>
 
     </main>
