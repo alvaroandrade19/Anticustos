@@ -1,0 +1,255 @@
+/* Lenis Smooth Scroll Base */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* Custom Elements and Components */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+    color: #e5e5e5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.4));
+}
+
+.text-gradient-primary {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+}
+
+/* Glassmorphism */
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Beam */
+.btn-beam {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px;
+    background-color: #111;
+    z-index: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-beam:hover {
+    background-color: #000;
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-beam::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255, 255, 255, 0.8) 60deg, transparent 120deg);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: spin-beam 2s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.btn-beam:hover::before {
+    opacity: 1;
+}
+
+@keyframes spin-beam {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Flashlight Effect */
+.flashlight-card {
+    position: relative;
+    background-color: rgba(20, 20, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flashlight-card::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.flashlight-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.5), transparent 40%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.flashlight-card:hover::before,
+.flashlight-card:hover .flashlight-border {
+    opacity: 1;
+}
+
+.flashlight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Fancy Orbs & Floats */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 30px -8px rgba(225, 29, 72, 0.2);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 50px -6px rgba(225, 29, 72, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.animate-on-scroll {
+    opacity: 0.01;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Checkbox interaction style */
+.chip-checkbox {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chip-checkbox:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.chip-box {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.chip-checkbox:hover .chip-box {
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.chip-checkbox svg {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chip-checkbox:hover svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Marquee / Ticker Animations */
+@keyframes ticker-marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-ticker {
+    animation: ticker-marquee 25s linear infinite;
+}
+
+.animate-ticker:hover {
+    animation-play-state: paused;
+}

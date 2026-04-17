@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Estruturamos e implementamos IA de forma simples para escalar sua operação, reduzir custos e ganhar previsibilidade no seu negócio.">
     <meta name="theme-color" content="#2563EB">
+    <meta property="og:title" content="NEXUS AI - Premium Solutions">
+    <meta property="og:description" content="Estruturamos e implementamos IA de forma simples para escalar sua operação, reduzir custos e ganhar previsibilidade no seu negócio.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
     <title>NEXUS AI - Premium Solutions</title>
 
     <!-- Bootstrap 5 CDN (Restored for CSS reboot baseline) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Performance Preloads -->
-    <link rel="preload" as="video" href="video.mp4.mp4" type="video/mp4">
+    <link rel="preload" as="video" href="assets/media/hero-background.mp4" type="video/mp4">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,295 +25,17 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap"
         rel="stylesheet">
 
-    <!-- Lenis Fallback -->
-    <style>
-        html.lenis {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
-        }
-    </style>
-
-    <!-- Tailwind Config Base -->
+    <!-- Assets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['Space Mono', 'monospace'],
-                    },
-                    colors: {
-                        neutral: {
-                            850: '#1f1f1f',
-                            950: '#0a0a0a',
-                        },
-                        brand: {
-                            500: '#e11d48',
-                            600: '#be123c',
-                            accent: '#fb7185'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="assets/js/tailwind-config.js"></script>
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Custom CSS Base -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #e5e5e5;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.4));
-        }
-
-        .text-gradient-primary {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Button Beam */
-        .btn-beam {
-            position: relative;
-            overflow: hidden;
-            border-radius: 9999px;
-            background-color: #111;
-            z-index: 1;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .btn-beam:hover {
-            background-color: #000;
-            transform: scale(1.02);
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .btn-beam::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            padding: 1px;
-            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255, 255, 255, 0.8) 60deg, transparent 120deg);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            animation: spin-beam 2s linear infinite;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .btn-beam:hover::before {
-            opacity: 1;
-        }
-
-        @keyframes spin-beam {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Flashlight Effect */
-        .flashlight-card {
-            position: relative;
-            background-color: rgba(20, 20, 20, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .flashlight-card::before {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            left: 0;
-            top: 0;
-            border-radius: inherit;
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .flashlight-border {
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.5), transparent 40%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .flashlight-card:hover::before,
-        .flashlight-card:hover .flashlight-border {
-            opacity: 1;
-        }
-
-        .flashlight-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Fancy Orbs & Floats */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(2deg);
-            }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 30px -8px rgba(225, 29, 72, 0.2);
-                transform: scale(1);
-            }
-
-            50% {
-                box-shadow: 0 0 50px -6px rgba(225, 29, 72, 0.6);
-                transform: scale(1.02);
-            }
-        }
-
-        .animate-pulse-glow {
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        .animate-on-scroll {
-            opacity: 0.01;
-            filter: blur(10px);
-            transform: translateY(20px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .animate-on-scroll.in-view {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0);
-        }
-
-        /* Checkbox interaction style */
-        .chip-checkbox {
-            position: relative;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .chip-checkbox:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .chip-box {
-            width: 16px;
-            height: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .chip-checkbox:hover .chip-box {
-            border-color: rgba(255, 255, 255, 0.9);
-        }
-
-        .chip-checkbox svg {
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .chip-checkbox:hover svg {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        @keyframes ticker-marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .animate-ticker {
-            animation: ticker-marquee 25s linear infinite;
-        }
-        .animate-ticker:hover {
-            animation-play-state: paused;
-        }
-    </style>
+    
 </head>
 
 <body class="bg-[#050505] text-neutral-300 antialiased min-h-screen relative">
@@ -403,7 +129,7 @@
                       - Translação estendida para +28% à direita (empurrando levemente mais como pedido).
                       - Translação estendida no Y para +12% (descendo a câmera levemente).
                     -->
-                    <video id="heroVideo" src="video.mp4.mp4" autoplay loop muted playsinline
+                    <video id="heroVideo" src="assets/media/hero-background.mp4" autoplay loop muted playsinline
                         class="w-full h-full object-cover opacity-85 brightness-[0.95]"
                         style="transform: translate(28%, 12%);">
                     </video>
@@ -813,66 +539,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
 
-    <script>
-        // Init Lucide Icons
-        lucide.createIcons();
-
-        // Reveal on scroll standard logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-        // Flashlight Hover Effect Logic
-        document.querySelectorAll('.flashlight-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // Smooth Scroll with Lenis
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // UI Intro Entry Animations (Replacing scrub logic with elegant fading)
-        const tlEntry = gsap.timeline({ delay: 0.3 });
-        tlEntry.fromTo(".hero-anim",
-            { y: 30, opacity: 0, filter: "blur(8px)" },
-            { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, stagger: 0.08, ease: "power3.out" }
-        );
-
-        // Navigation fade in
-        gsap.fromTo("nav",
-            { y: -20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.1 }
-        );
-
-        // Native Autoplay fallback force for Safari/Mobile devices
-        const heroVid = document.getElementById('heroVideo');
-        if (heroVid) {
-            heroVid.play().catch((e) => {
-                console.log("Autoplay was caught by browser", e);
-                // Can trigger a play button interaction here if needed
-            });
-        }
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
