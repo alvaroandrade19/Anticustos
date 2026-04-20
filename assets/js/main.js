@@ -56,3 +56,12 @@ if (heroVid) {
         // Can trigger a play button interaction here if needed
     });
 }
+
+// Meta Pixel - InitiateCheckout on CTA buttons
+document.querySelectorAll('a[href^="https://wa.link/"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout');
+        }
+    });
+});
